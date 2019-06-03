@@ -1,6 +1,7 @@
 <?php
 
-class Produit {
+class Produit
+{
     private $id;
     private $name;
     private $description;
@@ -81,7 +82,7 @@ class Produit {
      */
     public function setPrice($price): void
     {
-        if($price >= 0) {
+        if ($price >= 0) {
             $this->price = $price;
         }
     }
@@ -99,7 +100,7 @@ class Produit {
      */
     public function setNbVues($nbVues): void
     {
-        if($nbVues >= 0) {
+        if ($nbVues >= 0) {
             $this->$nbVues = $nbVues;
         }
         $this->nbVues = $nbVues;
@@ -170,12 +171,3 @@ class Produit {
     }
 
 }
-
-
-
-
-
-
-
-
-
