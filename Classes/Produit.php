@@ -9,4 +9,5 @@ class Produit {
     public $dateCreation;
     public $dateModification;
     public $etatPublication;
+    public $imageName;
 }
