@@ -1,8 +1,11 @@
-<?php require 'inc/header.php'; ?>
+<?php
+require '../inc/header.php';
+require 'register_check.php';
+?>
 
     <main class="container">
 
-    <h1>Inscription</h1>
+        <h1>Inscription</h1>
 
         <form method="post">
 
@@ -33,4 +36,4 @@
         </form>
 
     </main>
-<?php require 'inc/footer.php'; ?>
+<?php require '../inc/footer.php'; ?>
