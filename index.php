@@ -9,11 +9,8 @@ $query = "SELECT * FROM produit WHERE etat_publication = 1";
 // Execution de la requête
 $result = $pdo->query($query);
 // Récupération des résultats
-$products = $result->fetchAll();
+$products = $result->fetchAll(PDO::FETCH_CLASS, 'Produit');
 
-var_dump($products);
-
-die('test bdd');
 ?>
 
 <?php require 'inc/header.php'; ?>
