@@ -1,7 +1,10 @@
 <?php
 
+
 class Produit
 {
+    const PER_PAGE = 12;
+
     private $id;
     private $name;
     private $description;
@@ -159,7 +162,7 @@ class Produit
      */
     public function getImageName()
     {
-        return $this->imageName;
+        return $this->imageName ?? $this->image_name ?? '';
     }
 
     /**
