@@ -24,14 +24,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $user->setEmail($_POST['email']);
         $user->setPassword($_POST['password']);
 
-        $query = "INSERT INTO app_user (username, email, password)
-                VALUES (".$user->getStrParamsSQL().")";
-
-        var_dump($query);
+        $query = "INSERT INTO app_user (username, email, password) VALUES (" .
+                $user->getStrParamsSQL() .
+                ")";
 
         $success = $database->exec($query);
-
-        var_dump($success);
 
     } else {
         var_dump("Problème");
