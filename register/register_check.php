@@ -18,10 +18,21 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $database = new Database();
         $database->connect();
 
+        // On crée un utilisateur en local
+        $user = new User();
+        $user->setUsername($_POST['username']);
+        $user->setEmail($_POST['email']);
+        $user->setPassword($_POST['password']);
+
         $query = "INSERT INTO app_user (username, email, password)
-                VALUES ('".$_POST['username']."','".$_POST['email']."','".$_POST['password']."')";
+                VALUES (".$user->getStrParamsSQL().")";
+
+        var_dump($query);
 
         $success = $database->exec($query);
+
+        var_dump($success);
+
     } else {
         var_dump("Problème");
     }
