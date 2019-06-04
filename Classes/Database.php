@@ -40,4 +40,18 @@ class Database
         // Récupération des résultats
         return $result->fetchAll(PDO::FETCH_CLASS, $className);
     }
+
+    /**
+     * Execute une requête SQL pour :
+     * - La création (INSERT INTO)
+     * - La modification (UPDATE)
+     * - La suppression (DELETE, DROP)
+     * @param string $sql
+     * @return int
+     */
+    public function exec(string $sql): int
+    {
+        return $this->pdo->exec($sql);
+    }
 }
+

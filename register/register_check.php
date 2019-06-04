@@ -1,5 +1,6 @@
 <?php
 
+require '../autoload.php';
 require 'form-functions.php';
 
 // Vérification formulaire + inscription de l'utilisateur en BDD
@@ -14,7 +15,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         empty($errorMessagePassword)
     ) {
         // Il n'y a pas d'erreur, on passe à l'inscription
-        var_dump("On peut inscrire l'utilisateur");
+        $database = new Database();
+        $database->connect();
+
+        $query = "INSERT INTO app_user (username, email, password)
+                VALUES ('".$_POST['username']."','".$_POST['email']."','".$_POST['password']."')";
+
+        $success = $database->exec($query);
     } else {
         var_dump("Problème");
     }
