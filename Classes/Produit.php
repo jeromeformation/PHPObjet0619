@@ -162,6 +162,8 @@ class Produit
      */
     public function getImageName()
     {
+        // rustine pour afficher l'image dans le cas où la colonne
+        // de la table en BDD diffère de celle de la propriété de la classe
         return $this->imageName ?? $this->image_name ?? '';
     }
 

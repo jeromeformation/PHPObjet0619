@@ -2,21 +2,12 @@
 
 require 'autoload.php';
 
-// Connexion à MySQL
-$pdo = new PDO(
-        'mysql:host=localhost;dbname=catalogue',
-        'root',
-        null,
-        [
-            PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES utf8mb4"
-        ]
-);
+$database = new Database();
+$database->connect();
+
 // Requête SQL
 $query = "SELECT * FROM produit WHERE etat_publication = 1";
-// Execution de la requête
-$result = $pdo->query($query);
-// Récupération des résultats
-$products = $result->fetchAll(PDO::FETCH_CLASS, 'Produit');
+$products = $database->query($query, 'Produit');
 
 ?>
 
