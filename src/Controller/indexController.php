@@ -4,7 +4,7 @@ require dirname(__DIR__, 2) . '/autoload.php';
 
 // Connexion à la BDD
 $database = new Database();
-$database->connect();
+// $database->connect(); appelé directement dans le constructeur
 
 // Requête SQL
 $query = "SELECT * FROM produit WHERE etat_publication = 1";

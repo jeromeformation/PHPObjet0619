@@ -16,13 +16,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     ) {
         // Il n'y a pas d'erreur, on passe à l'inscription
         $database = new Database();
-        $database->connect();
+        // $database->connect(); appelé directement dans le constructeur
 
         // On crée un utilisateur en local
-        $user = new User();
-        $user->setUsername($_POST['username']);
-        $user->setEmail($_POST['email']);
-        $user->setPassword($_POST['password']);
+        $user = new User($_POST['username'], $_POST['email'], $_POST['password']);
 
         $query = "INSERT INTO app_user (username, email, password) VALUES (" .
             $user->getStrParamsSQL() .

@@ -12,6 +12,15 @@ class Database
     private $pdo;
 
     /**
+     * On crée un constructeur pour initialiser PDO automatiquement
+     */
+    public function __construct()
+    {
+        var_dump("Entrée dans le constructeur");
+        $this->connect();
+    }
+
+    /**
      * Créer une instance de PDO
      */
     public function connect(): void
@@ -22,7 +31,8 @@ class Database
             'root',
             null,
             [
-                PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES utf8mb4"
+                PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES utf8mb4",
+                PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION
             ]
         );
     }

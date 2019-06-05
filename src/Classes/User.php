@@ -23,6 +23,19 @@ class User
     private $password;
 
     /**
+     * Initialisation des propriétés de l'utilisateur à la construction de l'objet
+     * @param string $username
+     * @param string $email
+     * @param string $password
+     */
+    public function __construct(string $username, string $email, string $password)
+    {
+        $this->username = $username;
+        $this->email = $email;
+        $this->setPassword($password);
+    }
+
+    /**
      * @return int
      */
     public function getId(): int
