@@ -2,10 +2,10 @@
 
 class Vehicle
 {
-    private $brand;
-    private $nbWheels;
-    private $motor;
-    private $kilomoters;
+    protected $brand;
+    protected $nbWheels;
+    protected $motor;
+    protected $kilomoters;
 
     public function __construct(string $brand, string $motor, int $nbWheels)
     {
@@ -47,7 +47,7 @@ class Vehicle
     /**
      * @param mixed $nbWheels
      */
-    public function setNbWheels($nbWheels): void
+    public function setNbWheels(int $nbWheels): void
     {
         $this->nbWheels = $nbWheels;
     }
