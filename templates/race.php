@@ -25,6 +25,23 @@ echo $airbusa380->getWheels();
 var_dump($airbusa380);
 
 
+// Création d'un bateau
+$titanic = new Boat(
+    'Paquebot',
+    'Fioul',
+    ['Cannes', 'Nice', 'Marseille']
+);
+var_dump($titanic);
+
+$aeroport = new Aeroport();
+$aeroport->addVehicle($vehicle);
+$aeroport->addVehicle($vehicle2);
+$aeroport->addVehicle($airbusa380);
+$aeroport->addVehicle($titanic);
+
+
+var_dump($aeroport);
+
 
 
 
