@@ -1,14 +1,13 @@
 <?php
 
 require dirname(__DIR__, 2) . '/autoload.php';
-require dirname(__DIR__) . '/functions/form-functions.php';
 
 // Vérification formulaire + inscription de l'utilisateur en BDD
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
-    $errorMessageUsername = checkPostText('username', 128);
-    $errorMessageEmail = checkPostText('email', 255);
-    $errorMessagePassword = checkPostText('password', 128);
+    $errorMessageUsername = FormValidator::checkPostText('username', 128);
+    $errorMessageEmail = FormValidator::checkPostText('email', 255);
+    $errorMessagePassword = FormValidator::checkPostText('password', 128);
 
     if (empty($errorMessageUsername) &&
         empty($errorMessageEmail) &&

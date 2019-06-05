@@ -7,7 +7,8 @@ $vehicle = new Vehicle("Renault",'Essence',4);
 $vehicle->move(15);
 $vehicle->move(17);
 
-
+Compteur::addCompteur();
+echo Compteur::getCompteur();
 var_dump($vehicle);
 
 // Création d'un autre véhicule
@@ -33,6 +34,8 @@ $titanic = new Boat(
 );
 var_dump($titanic);
 
+Compteur::addCompteur();
+echo Compteur::getCompteur();
 $aeroport = new Aeroport();
 $aeroport->addVehicle($vehicle);
 $aeroport->addVehicle($vehicle2);
