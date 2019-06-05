@@ -1,7 +1,7 @@
 <?php
 
-require '../autoload.php';
-require 'form-functions.php';
+require dirname(__DIR__, 2) . '/autoload.php';
+require dirname(__DIR__) . '/functions/form-functions.php';
 
 // Vérification formulaire + inscription de l'utilisateur en BDD
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
@@ -25,12 +25,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $user->setPassword($_POST['password']);
 
         $query = "INSERT INTO app_user (username, email, password) VALUES (" .
-                $user->getStrParamsSQL() .
-                ")";
+            $user->getStrParamsSQL() .
+            ")";
 
         $success = $database->exec($query);
 
-    } else {
-        var_dump("Problème");
     }
 }

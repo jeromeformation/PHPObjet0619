@@ -1,11 +1,12 @@
 <?php
-require '../inc/header.php';
-require 'register_check.php';
+
+require dirname(__DIR__) . '/src/Controller/registerController.php';
+require 'inc/header.php';
 ?>
 
     <main class="container">
 
-        <?php if(isset($success) && $success === 1) : ?>
+        <?php if (isset($success) && $success === 1) : ?>
             <div class="alert alert-success alert-dismissible fade show" role="alert">
                 Utilisateur inscrit : Bonjour <?= (isset($user)) ? $user->getUsername() : '' ?>
                 <button type="button" class="close" data-dismiss="alert" aria-label="Close">
@@ -14,7 +15,7 @@ require 'register_check.php';
             </div>
         <?php endif; ?>
 
-        <h1>Inscription &lsaquo;script>alert('dsfsdf')&lsaquo;/script> </h1>
+        <h1>Inscription</h1>
 
         <form method="post">
 
@@ -22,21 +23,21 @@ require 'register_check.php';
                 <label for="username">Nom d'utilisateur</label>
                 <input type="text"
                        class="form-control <?= (isset($errorMessageUsername) && !empty($errorMessageUsername)) ? 'is-invalid' : '' ?>"
-                       id="username" name="username" value="<?= $_POST['username']  ?? '' ?>">
+                       id="username" name="username" value="<?= $_POST['username'] ?? '' ?>">
                 <div class="invalid-feedback"><?= $errorMessageUsername ?? "" ?></div>
             </div>
             <div class="form-group">
                 <label for="email">Email</label>
                 <input type="email"
                        class="form-control <?= (isset($errorMessageEmail) && !empty($errorMessageEmail)) ? 'is-invalid' : '' ?>"
-                       id="email" name="email" value="<?= $_POST['email']  ?? '' ?>">
+                       id="email" name="email" value="<?= $_POST['email'] ?? '' ?>">
                 <div class="invalid-feedback"><?= $errorMessageEmail ?? "" ?></div>
             </div>
             <div class="form-group">
                 <label for="password">Mot de passe</label>
                 <input type="password"
                        class="form-control <?= (isset($errorMessagePassword) && !empty($errorMessagePassword)) ? 'is-invalid' : '' ?>"
-                       id="password" name="password" value="<?= $_POST['password']  ?? '' ?>">
+                       id="password" name="password" value="<?= $_POST['password'] ?? '' ?>">
                 <div class="invalid-feedback"><?= $errorMessagePassword ?? "" ?></div>
             </div>
 
@@ -45,4 +46,4 @@ require 'register_check.php';
         </form>
 
     </main>
-<?php require '../inc/footer.php'; ?>
+<?php require 'inc/footer.php'; ?>

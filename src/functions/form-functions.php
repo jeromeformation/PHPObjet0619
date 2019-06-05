@@ -67,7 +67,7 @@ function checkPostDate(string $key): string
         // On décompose la date de création en 3 parties
         $tabCreatedAt = explode('-', $_POST[$key]);
         // On vérifie qu'on a bien les 3 composantes de la date
-        if(
+        if (
             sizeof($tabCreatedAt) !== 3 ||
             !checkdate($tabCreatedAt[1], $tabCreatedAt[2], $tabCreatedAt[0])
         ) {
@@ -77,7 +77,8 @@ function checkPostDate(string $key): string
     return $message ?? "";
 }
 
-function sanitizeRadio(string $key): void {
+function sanitizeRadio(string $key): void
+{
     if (!array_key_exists($key, $_POST)) {
         $_POST[$key] = false;
     } else {

@@ -107,6 +107,6 @@ class User
         $str = implode("','", $tab);
         // On a ajoute une quote simple au début et une à la fin
         // On retourne l'ensemble
-        return "'" . $str . "'" ;
+        return "'" . $str . "'";
     }
 }
