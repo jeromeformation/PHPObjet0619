@@ -1,27 +1,6 @@
 <?php
 
 require dirname(__DIR__) . '/autoload.php';
-/*
-// Création d'un véhicule
-$vehicle = new AbstractVehicle("Renault",'Essence',4);
-$vehicle->move(15);
-$vehicle->move(17);
-
-Compteur::addCompteur();
-echo Compteur::getCompteur();
-var_dump($vehicle);
-
-// Création d'un autre véhicule
-$vehicle2 = new AbstractVehicle("Dacia",'Diesel',4);
-$vehicle2->move(100);
-$vehicle2->move(4);
-
-var_dump($vehicle2);*/
-
-//$vehicle = new AbstractVehicle("Dacia",'Diesel',4);
-$car = new Car("Dacia",'Diesel',4);
-$car->move(1555);
-var_dump($car);
 
 // Création d'un avion
 $airbusa380 = new Plane('Airbus', 'Kérosène', 22);
@@ -29,7 +8,6 @@ $airbusa380->setMaxAlt('20000');
 $airbusa380->move(2000);
 echo $airbusa380->getWheels();
 var_dump($airbusa380);
-
 
 // Création d'un bateau
 $titanic = new Boat(
@@ -39,15 +17,10 @@ $titanic = new Boat(
 );
 var_dump($titanic);
 
-Compteur::addCompteur();
-echo Compteur::getCompteur();
+// Création de l'aéroport
 $aeroport = new Aeroport();
-$aeroport->addVehicle($vehicle);
-$aeroport->addVehicle($vehicle2);
 $aeroport->addVehicle($airbusa380);
 $aeroport->addVehicle($titanic);
-
-
 var_dump($aeroport);
 
 

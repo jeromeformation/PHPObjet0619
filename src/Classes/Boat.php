@@ -15,7 +15,7 @@ class Boat extends AbstractVehicle
 
     public function move(int $km): void
     {
-        parent::move($km);
+        //parent::move($km); classe abstraite
         echo 'Bbuububle';
     }
 
