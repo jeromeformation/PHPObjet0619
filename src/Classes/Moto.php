@@ -1,58 +1,14 @@
 <?php
 
-class Moto
+class Moto extends RollingVehicle
 {
-    private $marque;
-
-    public function __construct($marque)
+    public function __construct(string $name, string $fuel, ?int $kms = 0, ?int $nbWheels = 2)
     {
-        $this->marque = $marque;
+        parent::__construct($name, $fuel, $nbWheels, $kms);
     }
 
-    public function __destruct()
+    public function makeNoise(): string
     {
-        echo 'Destruction';
+        return 'Bip bip biiiip';
     }
-
-    public function __get($name)
-    {
-        var_dump('Propriété inexistante');
-        var_dump('Propriété : ' . $name);
-    }
-
-    public function __set($name, $value)
-    {
-        var_dump('Propriété inexistante');
-        var_dump('Propriété : ' . $name);
-        var_dump('Valeur fournie : ' . $value);
-    }
-
-    public function __call($name, $arguments)
-    {
-        if($name === 'getName') {
-            return $this->marque;
-        }
-    }
-
-    public function __toString()
-    {
-        return 'Moto de marque : ' . $this->marque;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getMarque()
-    {
-        return $this->marque;
-    }
-
-    /**
-     * @param mixed $marque
-     */
-    public function setMarque($marque): void
-    {
-        $this->marque = $marque;
-    }
-
 }

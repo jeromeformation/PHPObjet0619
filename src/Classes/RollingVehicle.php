@@ -1,44 +1,47 @@
 <?php
 
-/**
- * Classe définissant les véhicules roulants
- */
-abstract class RollingVehicle implements VehicleInterface
+abstract class RollingVehicle extends AbstractVehicle
 {
     /**
-     * Le kilométrage du véhicule
      * @var int
      */
-    private $kilometers;
+    protected $nbWheels;
 
     /**
-     * Un véhicule doit pouvoir avancer d'un certain nombre de kilomètres
-     * @param int $km
+     * RollingVehicle constructor.
+     * @param string $name
+     * @param string $fuel
+     * @param int $nbWheels
+     * @param int|null $kms
      */
-    public function move(int $km): void
+    public function __construct(string $name, string $fuel, int $nbWheels, ?int $kms = 0)
     {
-        $this->kilometers += $km;
+        parent::__construct($name, $fuel, $kms);
+        $this->nbWheels = $nbWheels;
     }
 
-    /**
-     * Retourne le bruit du véhicule
-     * @return string
-     */
-    public abstract function makeNoise(): string;
+    public function move(int $km): void
+    {
+        $this->kms += $km;
+        echo "<p>{$this->name} : Je roule $km kilomètres sur la route</p>";
+        echo "<p>{$this->makeNoise()}</p>";
+    }
 
     /**
      * @return int
      */
-    public function getKilometers(): int
+    public function getNbWheels(): int
     {
-        return $this->kilometers;
+        return $this->nbWheels;
     }
 
     /**
-     * @param int $kilometers
+     * @param int $nbWheels
      */
-    public function setKilometers(int $kilometers): void
+    public function setNbWheels(int $nbWheels): void
     {
-        $this->kilometers = $kilometers;
+        $this->nbWheels = $nbWheels;
     }
+
+
 }

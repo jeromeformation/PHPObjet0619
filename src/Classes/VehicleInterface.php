@@ -1,14 +1,18 @@
 <?php
 
-interface VehicleInterface {
+/**
+ * Interface des véhicules
+ */
+interface VehicleInterface
+{
     /**
-     * Un véhicule doit pouvoir avancer d'un certain nombre de kilomètres
+     * Un véhicule doit pouvoir avancer
      * @param int $km
      */
-    public function move(int $km): void;
+    public function move(int $km):void;
 
     /**
-     * Retourne le bruit du véhicule
+     * Chaque véhicule a un bruit différent
      * @return string
      */
     public function makeNoise(): string;

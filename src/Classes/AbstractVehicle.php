@@ -1,69 +1,90 @@
 <?php
 
-abstract class AbstractVehicle
-{
-    protected $brand;
-    protected $nbWheels;
-    protected $motor;
-    protected $kilomoters;
 
-    public function __construct(string $brand, string $motor, int $nbWheels)
+abstract class AbstractVehicle implements VehicleInterface
+{
+    /**
+     * @var string
+     */
+    protected $name;
+    /**
+     * @var string
+     */
+    protected $fuel;
+    /**
+     * @var int|null
+     */
+    protected $kms;
+
+    /**
+     * AbstractVehicle constructor.
+     * Typage des kilomètres :
+     * - ?int : le type donné est un entier ou null (pas de paramètre)
+     * - $kms = 0 : si le paramètre n'est pas donné, la valeur par défaut est 0
+     * @param string $name
+     * @param string $fuel
+     * @param int|null $kms
+     */
+    public function __construct(string $name, string $fuel, ?int $kms = 0)
     {
-        $this->kilomoters = 0;
-        $this->brand = $brand;
-        $this->motor = $motor;
-        $this->nbWheels = $nbWheels;
+        $this->name = $name;
+        $this->fuel = $fuel;
+        $this->kms = $kms;
     }
 
     public abstract function move(int $km): void;
 
     /**
-     * @return mixed
+     * Chaque véhicule a un bruit différent
+     * @return string
      */
-    public function getBrand()
+    public abstract function makeNoise(): string;
+
+    /**
+     * @return string
+     */
+    public function getName(): string
     {
-        return $this->brand;
+        return $this->name;
     }
 
     /**
-     * @param mixed $brand
+     * @param string $name
      */
-    public function setBrand($brand): void
+    public function setName(string $name): void
     {
-        $this->brand = $brand;
+        $this->name = $name;
     }
 
     /**
-     * @return mixed
+     * @return string
      */
-    public function getNbWheels()
+    public function getFuel(): string
     {
-        return $this->nbWheels;
+        return $this->fuel;
     }
 
     /**
-     * @param mixed $nbWheels
+     * @param string $fuel
      */
-    public function setNbWheels(int $nbWheels): void
+    public function setFuel(string $fuel): void
     {
-        $this->nbWheels = $nbWheels;
+        $this->fuel = $fuel;
     }
 
     /**
-     * @return mixed
+     * @return int|null
      */
-    public function getMotor()
+    public function getKms(): ?int
     {
-        return $this->motor;
+        return $this->kms;
     }
 
     /**
-     * @param mixed $motor
+     * @param int|null $kms
      */
-    public function setMotor($motor): void
+    public function setKms(?int $kms): void
     {
-        $this->motor = $motor;
+        $this->kms = $kms;
     }
-
-
 }

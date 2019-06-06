@@ -2,35 +2,30 @@
 
 require dirname(__DIR__) . '/autoload.php';
 
-// Création d'un avion
-$airbusa380 = new Plane('Airbus', 'Kérosène', 22);
-$airbusa380->setMaxAlt('20000');
-$airbusa380->move(2000);
-echo $airbusa380->getWheels();
-var_dump($airbusa380);
+// Création de motos
+$moto = new Moto('Triumph', 'essence');
+$moto2 = new Moto('Suzuki', 'essence', 30000);
 
-// Création d'un bateau
-$titanic = new Boat(
-    'Paquebot',
-    'Fioul',
-    ['Cannes', 'Nice', 'Marseille']
-);
-var_dump($titanic);
+var_dump($moto);
+var_dump($moto2);
 
-// Création de l'aéroport
-$aeroport = new Aeroport();
-$aeroport->addVehicle($airbusa380);
-$aeroport->addVehicle($titanic);
-var_dump($aeroport);
+// Création de voiture
+$car = new Car('207CC', 'essence', 250000);
+$car2 = new Car('Mini Cooper', 'essence');
+
+var_dump($car);
+var_dump($car2);
 
 
+/*************************************************************/
+/*****      On fait avancer les véhicules roulants      ******/
+/*************************************************************/
 
+$moto->move(25);
+$moto2->move(1000);
 
-
-
-
-
-
+$car->move(30);
+$car2->move(555);
 
 
 

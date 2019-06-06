@@ -1,10 +1,14 @@
 <?php
 
-
-class Car extends AbstractVehicle
+class Car extends RollingVehicle
 {
-    public function move(int $km): void
+    public function __construct(string $name, string $fuel, ?int $kms = 0, ?int $nbWheels = 4)
     {
-        echo 'Vrooum vroum la voiture';
+        parent::__construct($name, $fuel, $nbWheels, $kms);
+    }
+
+    public function makeNoise(): string
+    {
+        return 'Vrouuuuuuum vrouuum';
     }
 }
