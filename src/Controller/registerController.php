@@ -1,5 +1,7 @@
 <?php
 
+use src\Classes\User;
+
 require dirname(__DIR__, 2) . '/autoload.php';
 
 // Vérification formulaire + inscription de l'utilisateur en BDD

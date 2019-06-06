@@ -1,4 +1,5 @@
 <?php
+namespace src\Vehicle;
 
 /**
  * Interface des véhicules

@@ -1,4 +1,5 @@
 <?php
+namespace src\Vehicle;
 
 abstract class AbstractRollingVehicle extends AbstractVehicle
 {

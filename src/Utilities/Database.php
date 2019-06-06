@@ -1,4 +1,5 @@
 <?php
+namespace src\Vehicle;
 
 /**
  * Cette classe utilise PDO afin d'effectuer des opérations sur la BDD

@@ -1,4 +1,5 @@
 <?php
+namespace src\Utilities;
 
 class FormValidator
 {

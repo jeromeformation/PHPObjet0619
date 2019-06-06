@@ -1,4 +1,5 @@
 <?php
+namespace src\Vehicle;
 
 class Supercopter extends AbstractFlyingVehicle
 {

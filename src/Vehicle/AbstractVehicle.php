@@ -1,5 +1,5 @@
 <?php
-
+namespace src\Vehicle;
 
 abstract class AbstractVehicle implements VehicleInterface
 {

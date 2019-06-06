@@ -1,5 +1,12 @@
 <?php
 
+use src\Vehicle\Aeroport;
+use src\Vehicle\Car;
+use src\Vehicle\Moto;
+use src\Vehicle\Plane;
+
+// ou namespace src\Vehicle;
+
 require dirname(__DIR__) . '/autoload.php';
 
 // Création de motos

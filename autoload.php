@@ -4,7 +4,7 @@
 // Définition de la fonction d'autoloading
 function myAutoloader(string $className): void
 {
-    require 'src/Classes/' . $className . '.php';
+    require $className . '.php';
 }
 
 // Enregistrement de la fonction d'autoloading

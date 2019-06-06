@@ -1,4 +1,5 @@
 <?php
+namespace src\Examples;
 
 class Compteur
 {
