@@ -1,6 +1,6 @@
 <?php
 
-abstract class RollingVehicle extends AbstractVehicle
+abstract class AbstractRollingVehicle extends AbstractVehicle
 {
     /**
      * @var int

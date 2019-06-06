@@ -32,14 +32,6 @@ abstract class AbstractVehicle implements VehicleInterface
         $this->kms = $kms;
     }
 
-    public abstract function move(int $km): void;
-
-    /**
-     * Chaque véhicule a un bruit différent
-     * @return string
-     */
-    public abstract function makeNoise(): string;
-
     /**
      * @return string
      */

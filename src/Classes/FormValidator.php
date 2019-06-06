@@ -1,6 +1,7 @@
 <?php
 
-class FormValidator {
+class FormValidator
+{
     /**
      * Verification de la clef dans la superglobale POST et renvoi
      * de l'éventuel message d'erreur à afficher dans l'HTML (texte)

@@ -1,6 +1,6 @@
 <?php
 
-class Car extends RollingVehicle
+class Car extends AbstractRollingVehicle
 {
     public function __construct(string $name, string $fuel, ?int $kms = 0, ?int $nbWheels = 4)
     {

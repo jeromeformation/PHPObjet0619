@@ -8,6 +8,7 @@ class Compteur
     {
         static::$compteur += 1;
     }
+
     /**
      * @return int
      */
