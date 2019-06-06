@@ -1,13 +1,11 @@
 <?php
 
-class Plane extends Vehicle
+class Plane extends AbstractVehicle
 {
     private $maxAlt;
 
     public function move(int $km): void
     {
-        // On rappelle la méthode parente
-        parent::move($km);
         // On rajoute un comportement
         echo 'BRRRRRrrhh';
     }

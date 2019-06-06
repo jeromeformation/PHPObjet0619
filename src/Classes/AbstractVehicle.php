@@ -1,6 +1,6 @@
 <?php
 
-class Vehicle
+abstract class AbstractVehicle
 {
     protected $brand;
     protected $nbWheels;
@@ -15,10 +15,7 @@ class Vehicle
         $this->nbWheels = $nbWheels;
     }
 
-    public function move(int $km): void
-    {
-        $this->kilomoters += $km;
-    }
+    public abstract function move(int $km): void;
 
     /**
      * @return mixed

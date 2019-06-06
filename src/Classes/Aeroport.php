@@ -3,7 +3,7 @@
 class Aeroport
 {
     /**
-     * @var Vehicle[]
+     * @var AbstractVehicle[]
      */
     private $vehicles;
 
@@ -12,7 +12,7 @@ class Aeroport
         $this->vehicles = [];
     }
 
-    public function addVehicle(Vehicle $vehicle)
+    public function addVehicle(AbstractVehicle $vehicle)
     {
         $vehicle->move(15);
         $this->vehicles[] = $vehicle;

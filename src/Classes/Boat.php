@@ -1,6 +1,6 @@
 <?php
 
-class Boat extends Vehicle
+class Boat extends AbstractVehicle
 {
     /**
      * @var array

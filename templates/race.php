@@ -1,9 +1,9 @@
 <?php
 
 require dirname(__DIR__) . '/autoload.php';
-
+/*
 // Création d'un véhicule
-$vehicle = new Vehicle("Renault",'Essence',4);
+$vehicle = new AbstractVehicle("Renault",'Essence',4);
 $vehicle->move(15);
 $vehicle->move(17);
 
@@ -12,11 +12,16 @@ echo Compteur::getCompteur();
 var_dump($vehicle);
 
 // Création d'un autre véhicule
-$vehicle2 = new Vehicle("Dacia",'Diesel',4);
+$vehicle2 = new AbstractVehicle("Dacia",'Diesel',4);
 $vehicle2->move(100);
 $vehicle2->move(4);
 
-var_dump($vehicle2);
+var_dump($vehicle2);*/
+
+//$vehicle = new AbstractVehicle("Dacia",'Diesel',4);
+$car = new Car("Dacia",'Diesel',4);
+$car->move(1555);
+var_dump($car);
 
 // Création d'un avion
 $airbusa380 = new Plane('Airbus', 'Kérosène', 22);
