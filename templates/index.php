@@ -18,7 +18,7 @@ require 'inc/header.php';
         <?php foreach ($products as $product) : ?>
             <div class="col-4">
                 <div class="card">
-                    <img src="/public/img/uploads/<?= $product->getImageName(); ?>" class="card-img-top"
+                    <img src="/img/uploads/<?= $product->getImageName(); ?>" class="card-img-top"
                          alt="Image de <?= $product->getName() ?>">
                     <div class="card-body">
                         <h5 class="card-title"><?= $product->getName(); ?></h5>

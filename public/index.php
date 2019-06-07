@@ -9,6 +9,7 @@ use src\Utilities\Router;
 $router = new Router();
 $router->addRoute('/', 'index.php');
 $router->addRoute('/inscription', 'register.php');
+$router->addRoute('/connexion', 'connection.php');
 
 // On souhaite récupérer le fichier à exécuter
 $template = $router->match();
