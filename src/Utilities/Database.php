@@ -1,5 +1,5 @@
 <?php
-namespace src\Vehicle;
+namespace src\Utilities;
 
 /**
  * Cette classe utilise PDO afin d'effectuer des opérations sur la BDD
@@ -8,7 +8,7 @@ class Database
 {
     /**
      * Instance de PDO
-     * @var PDO
+     * @var \PDO
      */
     private $pdo;
 
@@ -27,13 +27,13 @@ class Database
     public function connect(): void
     {
         // Connexion à MySQL
-        $this->pdo = new PDO(
+        $this->pdo = new \PDO(
             'mysql:host=localhost;dbname=catalogue',
             'root',
             null,
             [
-                PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES utf8mb4",
-                PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION
+                \PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES utf8mb4",
+                \PDO::ATTR_ERRMODE => \PDO::ERRMODE_EXCEPTION
             ]
         );
     }
@@ -49,7 +49,7 @@ class Database
         // Execution de la requête
         $result = $this->pdo->query($sql);
         // Récupération des résultats
-        return $result->fetchAll(PDO::FETCH_CLASS, $className);
+        return $result->fetchAll(\PDO::FETCH_CLASS, $className);
     }
 
     /**

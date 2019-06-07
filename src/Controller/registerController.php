@@ -1,6 +1,8 @@
 <?php
 
-use src\Classes\User;
+use src\Entity\User;
+use src\Utilities\Database;
+use src\Utilities\FormValidator;
 
 require dirname(__DIR__, 2) . '/autoload.php';
 
