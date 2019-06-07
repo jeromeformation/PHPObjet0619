@@ -49,8 +49,6 @@ class RegisterController
                         throw new \Exception('PDOException dans RegisterController');
                     }
                 }
-
-
             }
         }
         return compact('errorMessageUsername','errorMessageEmail', 'errorMessagePassword', 'success', 'user');
