@@ -1,7 +1,17 @@
 <?php
+use src\Controller\RegisterController;
 
-require dirname(__DIR__) . '/src/Controller/registerController.php';
+require dirname(__DIR__) . '/autoload.php';
+
+// On récupère notre contrôleur
+$controller = new RegisterController();
+// On récupère les données de l'index
+$datas = $controller->register();
+// On extrait les données pour pouvoir les utiliser en tant que variables
+extract($datas);
+
 require 'inc/header.php';
+
 ?>
 
     <main class="container">
