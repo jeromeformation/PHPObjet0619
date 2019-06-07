@@ -7,9 +7,12 @@ use src\Utilities\FormValidator;
 
 class RegisterController
 {
-    public function register()
+    /**
+     * Vérification formulaire + inscription de l'utilisateur en BDD
+     * @return array - Les données à envoyer à la vue
+     */
+    public function register(): array
     {
-        // Vérification formulaire + inscription de l'utilisateur en BDD
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
             $errorMessageUsername = FormValidator::checkPostText('username', 128);
@@ -31,7 +34,23 @@ class RegisterController
                     $user->getStrParamsSQL() .
                     ")";
 
-                $success = $database->exec($query);
+                try {
+                    // On essaye d'insérer en BDD
+                    $success = $database->exec($query);
+                } catch(\PDOException $e) {
+                    // Une exception PDO est arrivée, on récupère son code
+                    $code = $e->getCode();
+                    // Le code 23000 = email unique
+                    if ($code === '23000') {
+                        // On affiche un message d'erreur
+                       $errorMessageEmail = 'Email déjà utilisé';
+                    } else {
+                        // Si on ne sait pas comment gérer, on provoque une exception
+                        throw new \Exception('PDOException dans RegisterController');
+                    }
+                }
+
+
             }
         }
         return compact('errorMessageUsername','errorMessageEmail', 'errorMessagePassword', 'success', 'user');
