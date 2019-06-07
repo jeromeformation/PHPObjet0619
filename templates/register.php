@@ -1,8 +1,6 @@
 <?php
 use src\Controller\RegisterController;
 
-require dirname(__DIR__) . '/autoload.php';
-
 // On récupère notre contrôleur
 $controller = new RegisterController();
 // On récupère les données de l'index

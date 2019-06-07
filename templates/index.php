@@ -2,8 +2,6 @@
 
 use src\Controller\IndexController;
 
-require dirname(__DIR__) . '/autoload.php';
-
 // On récupère notre contrôleur
 $controller = new IndexController();
 // On récupère les données de l'index
@@ -35,4 +33,3 @@ require 'inc/header.php';
 
 <?php require 'inc/footer.php'; ?>
 
-*/
