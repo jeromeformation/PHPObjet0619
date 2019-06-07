@@ -1,6 +1,16 @@
 <?php
 
-require dirname(__DIR__) . '/src/Controller/indexController.php';
+use src\Controller\IndexController;
+
+require dirname(__DIR__) . '/autoload.php';
+
+// On récupère notre contrôleur
+$controller = new IndexController();
+// On récupère les données de l'index
+$datas = $controller->index();
+// On extrait les données pour pouvoir les utiliser en tant que variables
+extract($datas);
+
 require 'inc/header.php';
 ?>
 
@@ -24,3 +34,5 @@ require 'inc/header.php';
 </main>
 
 <?php require 'inc/footer.php'; ?>
+
+*/
