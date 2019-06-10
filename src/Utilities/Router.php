@@ -30,9 +30,9 @@ class Router
         // On récupère l'URL
         $url = $_SERVER['REQUEST_URI'];
         // TODO : à enlever ASAP
-        if(strlen($url) >= 10) {
-            $url = substr($url, 10);
-        }
+        //if(strlen($url) >= 10) {
+        //    $url = substr($url,  10);
+        //}
 
 
         // On boucle dans les routes enregistrées
