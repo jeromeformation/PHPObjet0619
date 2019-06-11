@@ -89,6 +89,33 @@ class FormValidator
         }
     }
 
+    public function validate(array $datas)
+    {
+        $errors = [];
+        foreach ($datas as $data) {
+            $errors[$data[0]] = self::checkPostText($data[0], $data[2]);
+        }
+        return $errors;
+    }
+
+    public function generateInputText(string $key, string $type, string $label, array $errors): string {
+
+        $isError = array_key_exists($key, $errors) && !empty($errors[$key])? 'is-invalid' : '';
+        $value = $_POST[$key] ?? '';
+        $error = $errors[$key] ?? "";
+
+        return <<<EOT
+ <div class="form-group">
+    <label for="$key">$label</label>
+    <input type="$type"
+           class="form-control $isError"
+           id="$key" name="$key" value="$value">
+    <div class="invalid-feedback">$error</div>
+</div>
+EOT;
+    }
+
+
 }
 
 

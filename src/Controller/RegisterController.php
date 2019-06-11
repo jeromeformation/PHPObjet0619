@@ -14,11 +14,17 @@ class RegisterController
      */
     public function register(): array
     {
+        $formValidator = new FormValidator();
+        $errors = [];
+
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
-            $errorMessageUsername = FormValidator::checkPostText('username', 128);
-            $errorMessageEmail = FormValidator::checkPostText('email', 255);
-            $errorMessagePassword = FormValidator::checkPostText('password', 128);
+
+            $errors = $formValidator->validate([
+                ['username', 'text', 128],
+                ['email', 'text', 128],
+                ['password', 'text', 128]
+            ]);
 
             if (empty($errorMessageUsername) &&
                 empty($errorMessageEmail) &&
@@ -52,6 +58,6 @@ class RegisterController
                 }
             }
         }
-        return compact('errorMessageUsername','errorMessageEmail', 'errorMessagePassword', 'success', 'user');
+        return compact('errors', 'success', 'user', 'formValidator');
     }
 }

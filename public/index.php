@@ -12,7 +12,8 @@ $router->addRoute('/inscription', 'register.php');
 $router->addRoute('/connexion', 'connection.php');
 $router->addRoute('/contactez-moi', 'contact.php');
 $router->addRoute('/film/[0-9]', 'film.php');
-$router->addRoute('/film/[0-9]+', 'film.php');
+$router->addRoute('/film/[0-9]+
+', 'film.php');
 
 // On souhaite récupérer le fichier à exécuter
 $template = $router->match();
