@@ -10,6 +10,7 @@ class RegisterController
     /**
      * Vérification formulaire + inscription de l'utilisateur en BDD
      * @return array - Les données à envoyer à la vue
+     * @throws \Exception
      */
     public function register(): array
     {

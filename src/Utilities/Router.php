@@ -29,16 +29,14 @@ class Router
     {
         // On récupère l'URL
         $url = $_SERVER['REQUEST_URI'];
-        // TODO : à enlever ASAP
-        //if(strlen($url) >= 10) {
-        //    $url = substr($url,  10);
-        //}
-
 
         // On boucle dans les routes enregistrées
         foreach($this->routes as $route) {
+            // Echappement
+            $route['url'] = preg_replace('/\//', '\/', $route['url']);
+
             // Si la route correspond à l'URL
-            if($route['url'] === $url) {
+            if(preg_match('/^'.$route['url'].'$/', $url)) {
                 // On retourne le template à exécuter
                 return $route['template'];
             }
