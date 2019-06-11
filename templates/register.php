@@ -31,6 +31,14 @@ require 'inc/header.php';
             <?= $formValidator->generateInputText('email', 'email','Adresse email',$errors) ?>
             <?= $formValidator->generateInputText('password', 'password','Mot de passe',$errors) ?>
 
+            <div class="form-group">
+                <label for="role">Veux-tu être un admin ?</label>
+                <input type="checkbox"
+                       class="form-control <?= (isset($errors['role']) && !empty($errors['role'])) ? 'is-invalid' : '' ?>"
+                       id="role" name="role" value="<?= $_POST['role'] ?? '' ?>">
+                <div class="invalid-feedback"><?= $errors['role'] ?? "" ?></div>
+            </div>
+
             <input type="submit" value="S'inscrire" class="btn btn-outline-success">
 
         </form>

@@ -26,6 +26,10 @@ class RegisterController
                 ['password', 'text', 128]
             ]);
 
+            FormValidator::sanitizeRadio('role');
+
+
+
             if (empty($errorMessageUsername) &&
                 empty($errorMessageEmail) &&
                 empty($errorMessagePassword)
@@ -35,9 +39,10 @@ class RegisterController
                 // $database->connect(); appelé directement dans le constructeur
 
                 // On crée un utilisateur en local
-                $user = new User($_POST['username'], $_POST['email'], $_POST['password']);
+                $role = ($_POST['role']) ? 'admin' : 'user';
+                $user = new User($_POST['username'], $_POST['email'], $_POST['password'], $role);
 
-                $query = "INSERT INTO app_user (username, email, password) VALUES (" .
+                $query = "INSERT INTO app_user (username, email, password, role) VALUES (" .
                     $user->getStrParamsSQL() .
                     ")";
 
@@ -52,6 +57,8 @@ class RegisterController
                         // On affiche un message d'erreur
                        $errorMessageEmail = 'Email déjà utilisé';
                     } else {
+
+                        var_dump($e);
                         // Si on ne sait pas comment gérer, on provoque une exception
                         throw new \Exception('PDOException dans RegisterController');
                     }

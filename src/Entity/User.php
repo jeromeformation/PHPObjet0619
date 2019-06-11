@@ -24,16 +24,22 @@ class User
     private $password;
 
     /**
+     * @var string
+     */
+    private $role;
+
+    /**
      * Initialisation des propriétés de l'utilisateur à la construction de l'objet
      * @param string $username
      * @param string $email
      * @param string $password
      */
-    public function __construct(string $username, string $email, string $password)
+    public function __construct(string $username, string $email, string $password, string $role)
     {
         $this->username = $username;
         $this->email = $email;
         $this->setPassword($password);
+        $this->role = $role;
     }
 
     /**
@@ -115,7 +121,8 @@ class User
         $tab = [
             htmlentities($this->username),
             htmlentities($this->email),
-            htmlentities($this->password)
+            htmlentities($this->password),
+            htmlentities($this->role)
         ];
         // On crée une chaîne de caractères séparés de virgules et les quotes simples
         $str = implode("','", $tab);
@@ -123,4 +130,22 @@ class User
         // On retourne l'ensemble
         return "'" . $str . "'";
     }
+
+    /**
+     * @return string
+     */
+    public function getRole(): string
+    {
+        return $this->role;
+    }
+
+    /**
+     * @param string $role
+     */
+    public function setRole(string $role): void
+    {
+        $this->role = $role;
+    }
+
+
 }
