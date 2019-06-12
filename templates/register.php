@@ -30,6 +30,7 @@ require 'inc/header.php';
             <?= $formValidator->generateInputText('username', 'text','Nom d\'utilisateur',$errors) ?>
             <?= $formValidator->generateInputText('email', 'email','Adresse email',$errors) ?>
             <?= $formValidator->generateInputText('password', 'password','Mot de passe',$errors) ?>
+            <?= $formValidator->generateInputText('password-confirm', 'password','Vérification mot de passe',$errors) ?>
 
             <div class="form-group">
                 <label for="role">Veux-tu être un admin ?</label>

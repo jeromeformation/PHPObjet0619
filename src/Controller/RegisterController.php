@@ -23,17 +23,27 @@ class RegisterController
             $errors = $formValidator->validate([
                 ['username', 'text', 128],
                 ['email', 'text', 128],
-                ['password', 'text', 128]
+                ['password', 'text', 128],
+                ['password-confirm', 'text', 128]
             ]);
 
             FormValidator::sanitizeRadio('role');
 
+            // Vérification concordance mot de passe
+            if($_POST['password'] !== $_POST['password-confirm']) {
+                $errors['password'] = 'Les mots de passe ne correspondent pas';
+            }
 
+            // On vérifie s'il y a une erreur
+            $isError = false;
+            foreach ($errors as $error) {
+                if($error !== '') {
+                    $isError = true;
+                }
+            }
 
-            if (empty($errorMessageUsername) &&
-                empty($errorMessageEmail) &&
-                empty($errorMessagePassword)
-            ) {
+            if (!$isError) {
+
                 // Il n'y a pas d'erreur, on passe à l'inscription
                 $database = new Database();
                 // $database->connect(); appelé directement dans le constructeur
@@ -64,6 +74,7 @@ class RegisterController
                     }
                 }
             }
+
         }
         return compact('errors', 'success', 'user', 'formValidator');
     }
