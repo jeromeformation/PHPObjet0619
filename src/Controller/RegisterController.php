@@ -14,6 +14,7 @@ class RegisterController
      */
     public function register(): array
     {
+
         $formValidator = new FormValidator();
         $errors = [];
 
@@ -72,6 +73,11 @@ class RegisterController
                         // Si on ne sait pas comment gérer, on provoque une exception
                         throw new \Exception('PDOException dans RegisterController');
                     }
+                }
+
+                if($success === 1) {
+                    $url = $_SERVER['REQUEST_SCHEME'] . '://' . $_SERVER['HTTP_HOST'];
+                    header('Location: '.$url.'/');
                 }
             }
 
