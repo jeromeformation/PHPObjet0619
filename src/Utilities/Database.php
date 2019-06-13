@@ -48,7 +48,7 @@ class Database
         // Execution de la requête
         $result = $this->pdo->query($sql);
         // Récupération des résultats
-        return $result->fetchAll(\PDO::FETCH_CLASS, $className);
+        return $result->fetchAll(\PDO::FETCH_CLASS|\PDO::FETCH_PROPS_LATE, $className);
     }
 
     /**

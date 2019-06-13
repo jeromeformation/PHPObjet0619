@@ -27,6 +27,7 @@ require 'inc/header.php';
 
         <form method="post">
 
+
             <?= $formValidator->generateInputText('username', 'text','Nom d\'utilisateur',$errors) ?>
             <?= $formValidator->generateInputText('email', 'email','Adresse email',$errors) ?>
             <?= $formValidator->generateInputText('password', 'password','Mot de passe',$errors) ?>

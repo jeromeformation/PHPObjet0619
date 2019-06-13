@@ -3,6 +3,9 @@ namespace src\Utilities;
 
 class FormValidator
 {
+    private $errors;
+
+
     /**
      * Verification de la clef dans la superglobale POST et renvoi
      * de l'éventuel message d'erreur à afficher dans l'HTML (texte)
@@ -22,6 +25,18 @@ class FormValidator
         // On retourne l'éventuel message ou une chaîne de caractères vide
         return $message ?? '';
     }
+
+    public static function checkPostEmail(string $key, int $max): string
+    {
+        $message = self::checkPostText($key, $max);
+        if (empty($message)) {
+            $message = preg_match();
+        }
+        return $message;
+    }
+
+
+
 
     /**
      * Verification de la clef dans la superglobale POST et renvoi
@@ -91,11 +106,10 @@ class FormValidator
 
     public function validate(array $datas)
     {
-        $errors = [];
+        $this->errors = [];
         foreach ($datas as $data) {
-            $errors[$data[0]] = self::checkPostText($data[0], $data[2]);
+            $this->errors[$data[0]] = self::checkPostText($data[0], $data[2]);
         }
-        return $errors;
     }
 
     public function generateInputText(string $key, string $type, string $label, array $errors): string {
@@ -113,6 +127,18 @@ class FormValidator
     <div class="invalid-feedback">$error</div>
 </div>
 EOT;
+    }
+
+    public function isError()
+    {
+        // On vérifie s'il y a une erreur
+        $isError = false;
+        foreach ($this->errors as $error) {
+            if($error !== '') {
+                $isError = true;
+            }
+        }
+        return $isError;
     }
 
 

@@ -15,6 +15,13 @@ class Produit
     private $etatPublication;
     private $imageName;
 
+    public function __construct(?string $name = '', ?string $description = '')
+    {
+        $this->name = $name;
+        $this->description = $description;
+    }
+
+
     /**
      * Retourne les 50 premiers caractères de la description
      * @return string

@@ -21,7 +21,7 @@ class RegisterController
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 
-            $errors = $formValidator->validate([
+            $formValidator->validate([
                 ['username', 'text', 128],
                 ['email', 'text', 128],
                 ['password', 'text', 128],
@@ -35,15 +35,7 @@ class RegisterController
                 $errors['password'] = 'Les mots de passe ne correspondent pas';
             }
 
-            // On vérifie s'il y a une erreur
-            $isError = false;
-            foreach ($errors as $error) {
-                if($error !== '') {
-                    $isError = true;
-                }
-            }
-
-            if (!$isError) {
+            if (!$formValidator->isError()) {
 
                 // Il n'y a pas d'erreur, on passe à l'inscription
                 $database = new Database();
@@ -75,6 +67,7 @@ class RegisterController
                     }
                 }
 
+                // Si l'enregistrement a bien été fait, on redirige l'utilisateur
                 if($success === 1) {
                     $url = $_SERVER['REQUEST_SCHEME'] . '://' . $_SERVER['HTTP_HOST'];
                     header('Location: '.$url.'/');
