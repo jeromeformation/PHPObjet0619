@@ -33,9 +33,14 @@ class User
      * @param string $username
      * @param string $email
      * @param string $password
+     * @param string|null $role
      */
-    public function __construct(string $username, string $email, string $password, string $role)
-    {
+    public function __construct(
+        ?string $username = '',
+        ?string $email = '',
+        ?string $password = '',
+        ?string $role = ''
+    ) {
         $this->username = $username;
         $this->email = $email;
         $this->setPassword($password);

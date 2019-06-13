@@ -19,6 +19,9 @@
                 <li class="nav-item">
                     <a class="nav-link" href="/inscription">Inscription</a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/connexion">Connexion</a>
+                </li>
             </ul>
         </div>
     </div>
