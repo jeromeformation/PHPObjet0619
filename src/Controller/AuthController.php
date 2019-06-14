@@ -32,9 +32,9 @@ class AuthController
                 // On recherche l'utilisateur lié à l'email saisi
                 $sql = "SELECT * FROM app_user WHERE email = '{$user->getEmail()}'";
 
-                $users = $database->query($sql, User::class);
+                $user = $database->query($sql, User::class);
 
-                if(empty($users)) {
+                if(empty($user )) {
                     $errorMessageEmail = "Cet email n'existe pas";
                 } else {
                     $userPassword = $users[0]->getPassword();

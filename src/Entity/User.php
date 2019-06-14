@@ -36,14 +36,14 @@ class User
      * @param string|null $role
      */
     public function __construct(
-        ?string $username = '',
-        ?string $email = '',
-        ?string $password = '',
-        ?string $role = ''
+        ?string $username = null,
+        ?string $email = null,
+        ?string $password = null,
+        ?string $role = null
     ) {
         $this->username = $username;
         $this->email = $email;
-        $this->setPassword($password);
+        $this->password = $password;
         $this->role = $role;
     }
 
@@ -124,11 +124,17 @@ class User
     {
         // On crée un tableau avec les 3 propriétés
         $tab = [
-            htmlentities($this->username),
-            htmlentities($this->email),
-            htmlentities($this->password),
-            htmlentities($this->role)
+            $this->username,
+            $this->email,
+            $this->password,
+            $this->role
         ];
+
+        $tab = array_map(function($elem) {
+            return htmlentities($elem, ENT_QUOTES);
+        }, $tab);
+
+
         // On crée une chaîne de caractères séparés de virgules et les quotes simples
         $str = implode("','", $tab);
         // On a ajoute une quote simple au début et une à la fin

@@ -141,6 +141,14 @@ EOT;
         return $isError;
     }
 
+    /**
+     * @return mixed
+     */
+    public function getErrors()
+    {
+        return $this->errors ?? [];
+    }
+
 
 }
 

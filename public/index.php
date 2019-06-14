@@ -14,7 +14,11 @@ $router->addRoute('/contactez-moi', 'contact.php');
 $router->addRoute('/film/[0-9]', 'film.php');
 $router->addRoute('/film/[0-9]+', 'film.php');
 
-$router->addRoute('/compact-extract', 'compact-extract.php');
+$router->addRoute('/sites', 'sites.php');
+$router->addRoute('/liste-utilisateurs', 'users-list.php');
+
+
+$router->addRoute('/redirect', 'redirect-js.php');
 
 // On souhaite récupérer le fichier à exécuter
 $template = $router->match();

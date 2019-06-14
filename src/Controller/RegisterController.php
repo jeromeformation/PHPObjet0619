@@ -14,12 +14,10 @@ class RegisterController
      */
     public function register(): array
     {
-
+        var_dump('ddd');
         $formValidator = new FormValidator();
-        $errors = [];
 
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-
 
             $formValidator->validate([
                 ['username', 'text', 128],
@@ -49,10 +47,18 @@ class RegisterController
                     $user->getStrParamsSQL() .
                     ")";
 
+
                 try {
                     // On essaye d'insérer en BDD
                     $success = $database->exec($query);
+                    var_dump('succeess');
+                    die();
                 } catch(\PDOException $e) {
+                    var_dump($e);
+                    die();
+
+
+                    $success = 0;
                     // Une exception PDO est arrivée, on récupère son code
                     $code = $e->getCode();
                     // Le code 23000 = email unique
@@ -65,6 +71,10 @@ class RegisterController
                         // Si on ne sait pas comment gérer, on provoque une exception
                         throw new \Exception('PDOException dans RegisterController');
                     }
+                } catch (\Exception $e) {
+                    $success = 0;
+                    die('classic');
+                    var_dump($e);
                 }
 
                 // Si l'enregistrement a bien été fait, on redirige l'utilisateur
@@ -75,6 +85,8 @@ class RegisterController
             }
 
         }
+
+        $errors = $formValidator->getErrors();
         return compact('errors', 'success', 'user', 'formValidator');
     }
 }

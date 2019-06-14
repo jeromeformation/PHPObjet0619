@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Site PHP orienté objet</title>
+    <meta name="description">
     <link rel="stylesheet" href="/css/bootstrap.min.css">
 </head>
 <body>
@@ -21,6 +22,9 @@
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="/connexion">Connexion</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/liste-utilisateurs">Liste des utilisateurs</a>
                 </li>
             </ul>
         </div>
